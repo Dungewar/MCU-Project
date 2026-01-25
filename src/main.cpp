@@ -1,9 +1,10 @@
 #include <Arduino.h>
 
 // --- CONFIGURATION ---
-#define PULSE_WIDTH 1000   // 1ms
-#define SERIAL_BAUD 115200 // Set your Serial Monitor to this
-#define DEBUG true         // Set to true to enable serial logging
+#define PULSE_WIDTH 100      // in microseconds
+#define SERIAL_BAUD 115200   // Set your Serial Monitor to this
+#define DEBUG true           // Set to true to enable serial logging
+#define FILTER_DURATION 1000 // in microseconds, filter out pulses shorter than this
 
 // Pins
 const int bncIn = A0;
@@ -196,8 +197,8 @@ void loop()
 
     unsigned long interval = arrival - lastPulseTime;
 
-    // Filter noise (< 25ms)
-    if (interval < 25000)
+    // Filter noise (< 1ms)
+    if (interval < FILTER_DURATION)
       return;
 
     lastPulseTime = arrival;
