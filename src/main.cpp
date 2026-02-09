@@ -9,17 +9,17 @@
 // Pins
 const int bncIn = A0;
 const int bncOut = A1;
-const int btnUp = A2;
-const int btnDown = A3;
+const int btnUp = A3;
+const int btnDown = A2;
 
-// Display Pins
-const int segA = 7;
-const int segB = 6;
-const int segC = 4;
-const int segD = 3;
-const int segE = 2;
-const int segF = 8;
-const int segG = 9;
+// Flipped Display Pins (180-degree rotation)
+const int segA = 3; // Was segD
+const int segB = 2; // Was segE
+const int segC = 8; // Was segF
+const int segD = 7; // Was segA
+const int segE = 6; // Was segB
+const int segF = 4; // Was segC
+const int segG = 9; // Stays the same (Middle)
 
 int upsamplingFactor = 2;
 
